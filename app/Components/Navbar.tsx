@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
   const [isHoverInstagram, setIsHoverInstagram] = useState<boolean>(false);
   const [isHoverEmail, setIsHoverEmail] = useState<boolean>(false);
   const [isHoverGithub, setIsHoverGithub] = useState<boolean>(false);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>();
 
   const sizeHandler = () => {
     setTimeout(() => {
@@ -67,13 +68,14 @@ const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
+    window.innerWidth <= 640 ? setIsSmallScreen(true) : setIsSmallScreen(false);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos, isFocus, isActiveSection]);
 
-  if(window.innerWidth <= 640) {
+  if(isSmallScreen) {
     return (
       <div className=" w-screen relative z-[100]">
         <div className="lg:hidden w-full flex justify-center items-center px-7 box-border">
@@ -187,7 +189,7 @@ const Navbar: React.FC = () => {
     );
   }
 
-  if (window.innerWidth >= 1024) {
+  if (!isSmallScreen) {
     return (
       <div className=" sticky top-0 left-0 z-0 w-[24%] h-screen bg-[#31363F] flex flex-col">
         <div className=" w-full h-[45%] bg-[#2E3138] box-border p-5 flex flex-col items-center justify-center gap-12">
