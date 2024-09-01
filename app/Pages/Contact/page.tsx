@@ -136,8 +136,8 @@ const Contact: React.FC = () => {
                 placeholder="Message"
                 name=""
                 id=""
-                cols="30"
-                rows="10"
+                cols={30}
+                rows={10}
                 className=" w-full bg-transparent border-[3px] border-[#31363F] rounded-lg p-2  focus:outline-none focus:shadow-[0px_0px_7px_#31363F] duration-300"
               ></textarea>
             </div>
