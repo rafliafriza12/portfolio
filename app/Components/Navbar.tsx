@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    // window.innerWidth <= 640 ? setIsSmallScreen(true) : setIsSmallScreen(false);
+    window.innerWidth <= 640 ? setIsSmallScreen(true) : setIsSmallScreen(false);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
